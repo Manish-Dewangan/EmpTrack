@@ -8,7 +8,7 @@ import Payslips from "./pages/Payslips";
 import PrintPayslip from "./pages/PrintPayslip";
 import Settings from "./pages/Settings";
 import LoginLanding from "./pages/LoginLanding";
-import { Layout } from "lucide-react";
+import Layout from "./pages/Layout";
 import LoginForm from "./components/LoginForm";
 
 const App = () => {
