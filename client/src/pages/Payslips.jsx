@@ -1,7 +1,7 @@
 import React from "react";
 
 const Payslips = () => {
-  return <div></div>;
+  return <div>Payslips</div>;
 };
 
 export default Payslips;
