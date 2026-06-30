@@ -88,4 +88,4 @@ const PrintPayslip = () => {
   );
 };
 
-export default PrintPayslip;
+  export default PrintPayslip;
