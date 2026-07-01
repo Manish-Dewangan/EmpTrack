@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import Employee from "../models/Employee.js";
-import User from "../models/User";
+import User from "../models/User.js";
 
 
 //Get employees
@@ -108,7 +108,7 @@ export const updateEmployee = async(req, res)=> {
         if(role) userUpdate.role = role;
         if(password) userUpdate.password = await bcrypt.hash(password, 10);
 
-        await User.findByIdAndUpdate({employee.userId, userUpdate})
+        await User.findByIdAndUpdate(employee.userId, userUpdate)
 
         return res.json({success: true})
         
