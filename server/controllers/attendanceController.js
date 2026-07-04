@@ -1,5 +1,6 @@
 import Employee from "../models/Employee.js";
 import Attendance from "../models/Attendance.js";
+import { inngest } from "../inngest/index.js";
 
 // Clock in/out for employee
 //POST /api/attendance
@@ -34,6 +35,14 @@ try {
             date:today,
             checkIn:now,
             status : isLate ? "LATE" : "PRESENT"
+        })
+
+        await inngest.send({
+            name:"employee/check-out",
+            data:{
+                employeeId : employee._id,
+                attendanceId : attendance._id,
+            }
         })
 
         return res.json({success: yrue, type: "CHECK_IN", data, attendance})

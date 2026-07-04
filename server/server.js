@@ -12,6 +12,10 @@ import payslipRouter from "./routes/payslipsRoutes.js";
 import dashboardRouter from "./routes/dashboardRoutes.js";
 
 
+import { serve } from "inngest/express";
+import { inngest, functions } from "./inngest/index.js";
+
+
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -32,7 +36,7 @@ app.use("/api/leaves",leaveRouter)
 app.use("/api/payslips",payslipRouter)
 app.use("/api/dashboard",dashboardRouter)
 
-
+app.use("/api/inngest", serve({ client: inngest, functions }));
 
 await connectDB();
 
