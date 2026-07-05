@@ -18,7 +18,7 @@ const ApplyLeaveModel = ({ open, onClose, onSuccess }) => {
     const data = Object.fromEntries(formData.entries())
 
     try {
-      await api.post('/leave', data)
+      await api.post('/leaves', data)
       toast.success('Leave applied successfully')
       onSuccess()
       onClose()
@@ -37,13 +37,13 @@ const ApplyLeaveModel = ({ open, onClose, onSuccess }) => {
       onClick={onClose}
     >
       <div
-        className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg animate-fade-in"
+        className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-lg animate-fade-in"
         onClick={(e) => e.stopPropagation()}
       >
         {/* -------------- Header ------------- */}
         <div className="flex items-center justify-between p-6 pb-0">
           <div>
-            <h2 className="text-lg font-semibold text-slate-800">
+            <h2 className="text-lg font-semibold text-slate-800 dark:text-white">
               Apply for Leave
             </h2>
             <p className="text-sm text-slate-400 mt-0.5">

@@ -86,7 +86,7 @@ const Sidebar = () => {
 
       {/* User profile card */}
       {userName && (
-        <div className="mx-3 mt-4 mb-1 p-3 rounded-lg bg-white/3 border border-white/4">
+        <div className="mx-3 mt-4 mb-1 p-3 rounded-lg bg-white/3 dark:bg-slate-800 border border-white/4 dark:border-slate-700">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center ring-1 ring-white/10 shrink-0">
               <span className="text-slate-400 text-xs font-semibold">
@@ -126,7 +126,7 @@ const Sidebar = () => {
             <Link
               key={item.name}
               to={item.href}
-              className={`group flex items-center gap-3 px-3 py-2.5 rounded-md text-[13px] font-medium transition-all duration-150 relative ${isActive ? "bg-indigo-500/12 text-indigo-300" : "text-slate-300 hover:text-white hover:bg-white/4"}`}
+              className={`group flex items-center gap-3 px-3 py-2.5 rounded-md text-[13px] font-medium transition-all duration-150 relative ${isActive ? "bg-indigo-500/12 text-indigo-300" : "text-slate-300 dark:text-slate-400 hover:text-white dark:hover:text-slate-100 hover:bg-white/4 dark:hover:bg-slate-800"}`}
             >
               {isActive && (
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-r-full bg-indigo-500" />

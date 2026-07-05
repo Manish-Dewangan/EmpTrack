@@ -2,6 +2,7 @@ import { DEPARTMENTS } from "../constants/departments.js";
 import Attendance from "../models/Attendance.js"
 import Employee from "../models/Employee.js"
 import Payslip from "../models/Payslip.js";
+import LeaveApplication from "../models/LeaveApplication.js";
 
 // Get dashboard for employee and admin
 export const getDashboard = async (req, res) => {
@@ -32,7 +33,8 @@ export const getDashboard = async (req, res) => {
              const employee = await Employee.findOne({userId:session.userId}).lean()
 
              if(!employee){
-            return res.status(404).json({error:"Employee not found"})
+                return res.status(404).json({error:"Employee not found"})
+             }
 
             const today = new Date()
             const [currentMonthAttendance, pendingLeaves, latestPayslip] = await Promise.all([
@@ -49,7 +51,6 @@ export const getDashboard = async (req, res) => {
                 }),
                 Payslip.findOne({employeeId:employee._id}).sort({createdAt: -1}).lean(),
             ])
-        }
 
         return res.json({
             role:"EMPLOYEE",

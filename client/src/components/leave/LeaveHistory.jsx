@@ -10,7 +10,7 @@ const LeaveHistory = ({ leaves, isAdmin, onUpdate }) => {
   const handleStatusUpdate = async (id, status) => {
     setProcessing(id);
     try {
-      await api.patch(`/leave/${id}`, {status})
+      await api.patch(`/leaves/${id}`, {status})
       toast.success("Leave status updated successfully")
       onUpdate()
     } catch (error) {

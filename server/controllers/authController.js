@@ -10,12 +10,19 @@ import jwt from "jsonwebtoken"
 export const login = async(req, res)=>{
     try{
         const{email, password, role_type} = req.body;
+        console.log("Inside try");
+        
+        console.log("Email : ", email);
+        console.log("Password : ", password);
+        console.log("Role Type : ", role_type);
+        
 
         if(!email || !password){
             return res.status(400).json({error: "Email and password are required"})
         }
 
         const user = await User.findOne({email})
+        console.log("User : ", user);
 
         if(!user){
             return res.status(401).json({error : "Invalid credential"})
@@ -28,6 +35,8 @@ export const login = async(req, res)=>{
         if(role_type === "employee" && user.role !== "EMPLOYEE"){
             return res.status(401).json({error:"Not authorized as employee"})
         }
+
+        
 
         const isValid = await bcrypt.compare(password, user.password);
 

@@ -16,7 +16,7 @@ const Payslips = () => {
 
   const fetchPayslips = useCallback(async () => {
     try {
-      const res = await api.get('/payslip')
+      const res = await api.get('/payslips')
       setPayslips(res.data.data || [])
     } catch (error) {
       toast.error(error.response?.data?.error || error.message)

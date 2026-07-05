@@ -36,11 +36,11 @@ export const createEmployee = async(req, res)=> {
     try {
         const {firstName, lastName, email, phone, position, basicSalary, allowances, deductions, joinDate, password, department,role, bio} = req.body;
         
-        if(!email || !password || !firstName ||lastName){
-            return res.status(400).json({message: "Missing required fields"});
+        if(!email || !password || !firstName || !lastName){
+            return res.status(400).json({error: "Missing required fields"});
         }
 
-        const hashed = await bcrypt.hash(password, 10);
+        const hashedPassword = await bcrypt.hash(password, 10);
         const user = await User.create({
             email,
             password: hashedPassword,
@@ -66,7 +66,7 @@ export const createEmployee = async(req, res)=> {
 
     } catch (error) {
        if(error.code === 11000){
-        return res.status(400).json({message: "Email already exists"});
+        return res.status(400).json({error: "Email already exists"});
        }
 
        console.error("Create employee error:",error);
@@ -81,7 +81,7 @@ export const createEmployee = async(req, res)=> {
 export const updateEmployee = async(req, res)=> {
     try {
         const {id} = req.params;
-        const {firstName, lastName, email, phone, position, basicSalary, allowances, deductions,  department, role, bio, employmentStatus} = req.body;
+        const {firstName, lastName, email, phone, position, basicSalary, allowances, deductions,  department, role, bio, employmentStatus, password} = req.body;
 
         const employee = await Employee.findById(id);
         if(!employee){
@@ -114,7 +114,7 @@ export const updateEmployee = async(req, res)=> {
         
     } catch (error) {
         if(error.code === 11000){
-        return res.status(400).json({message: "Email already exists"});
+        return res.status(400).json({error: "Email already exists"});
        }
 
        res.status(500).json({error: "Failed to update employee"});

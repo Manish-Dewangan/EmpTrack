@@ -85,7 +85,7 @@ const Employees = () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
           {filtered.length === 0 ? (
-            <p className="col-span-full text-center py-16 text-slate-400 bg-white rounded-2xl border border-dashed border-slate-200">
+            <p className="col-span-full text-center py-16 text-slate-400 bg-white dark:bg-slate-800 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700">
               No Employees found
             </p>
           ) : (
@@ -109,7 +109,7 @@ const Employees = () => {
         >
           <div className="fixed inset-0" />
           <div
-            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl my-8 animate-fade-in"
+            className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-3xl my-8 animate-fade-in"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between p-6 pb-0">
@@ -150,7 +150,7 @@ const Employees = () => {
           onClick={() => setEditEmployee(null)}
         >
           <div
-            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl my-8 animate-fade-in"
+            className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-3xl my-8 animate-fade-in"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between p-6 pb-0">

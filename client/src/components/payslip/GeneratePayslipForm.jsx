@@ -18,7 +18,7 @@ const GeneratePayslipForm = ({ employees, onSuccess }) => {
         const formData = new FormData(e.currentTarget)
         const data = Object.fromEntries(formData.entries())
         try {
-            await api.post("/payslip", data)
+            await api.post("/payslips", data)
             onSuccess()
             setIsOpen(false)
         } catch (error) {
@@ -45,7 +45,7 @@ const GeneratePayslipForm = ({ employees, onSuccess }) => {
 
                         <select name='employeeId' required>
                             {employees.map((e) => (
-                                <option key={e._id || e.id}>
+                                <option key={e._id || e.id} value={e._id || e.id}>
                                     {e.firstName} {e.lastName} ({e.position})
                                 </option>
                             ))}

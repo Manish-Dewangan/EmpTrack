@@ -16,13 +16,13 @@ const AdminDashboard = ({ data }) => {
     },
     {
       icon: Building2Icon,
-      value: data.totalDepartments,
+      value: data.totalDepartment,
       label: "Departments",
       description: "Organization units",
     },
     {
       icon: CalendarIcon,
-      value: data.totalAttendance,
+      value: data.todayAttendance,
       label: "Today's Attendance",
       description: "Checked in today",
     },

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { DEPARTMENTS } from "../assets/assets";
 import { Loader2Icon } from "lucide-react";
 import toast from "react-hot-toast";
+import api from "../api/axios";
 
 const EmployeeForm = ({ initialData, onSuccess, onCancel }) => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const EmployeeForm = ({ initialData, onSuccess, onCancel }) => {
     }
 
     try {
-      const url = isEditMode ? `/employee/${initialData.id}` : `/employee`
+      const url = isEditMode ? `/employees/${initialData.id}` : `/employees`
       const method = isEditMode ? "put" : "post"
        await api[method](url, formData)
        onSuccess ? onSuccess() : navigate('/employees');

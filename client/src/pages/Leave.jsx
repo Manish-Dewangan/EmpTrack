@@ -25,7 +25,7 @@ const Leave = () => {
 
   const fetchLeaves = useCallback(async () => {
     try {
-      const res = await api.get('/leave')
+      const res = await api.get('/leaves')
       setLeaves(res.data.data || [])
       if(res.data.employee?.isDeleted) setIsDeleted(true)
     } catch (error) {

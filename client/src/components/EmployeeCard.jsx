@@ -7,7 +7,7 @@ const EmployeeCard = ({ employee, onDelete, onEdit }) => {
     if (!confirm("Are you sure you want to delete this employee?")) return;
 
     try {
-      await api.delete(`/employee/${employee.id}`)
+      await api.delete(`/employees/${employee.id}`)
       onDelete()
       toast.success("Employee deleted successfully")
     } catch (error) {
@@ -27,7 +27,7 @@ const EmployeeCard = ({ employee, onDelete, onEdit }) => {
         </div>
       </div>
       <div className="absolute top-3 left-3 flex gap-2">
-        <span className="bg-white/90 backdrop-blur-sm px-2.5 py-1 text-xs font-semibold text-slate-600 rounded-lg shadow-sm">
+        <span className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm px-2.5 py-1 text-xs font-semibold text-slate-600 dark:text-slate-300 rounded-lg shadow-sm">
           {employee.department || "Remote"}
         </span>
         {employee.isDeleted && (
@@ -40,13 +40,13 @@ const EmployeeCard = ({ employee, onDelete, onEdit }) => {
         <div className="absolute inset-0 bg-linear-to-t from-indigo-700/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity fkex items-end justify-center pb-6 gap-3">
           <button
             onClick={() => onEdit(employee)}
-            className="p-2.5 bg-white/90 backdrop-blur-sm text-slate-700 hover-text-indigo-600 rounded-xl shadow-lg transition-all hover:scale-105"
+            className="p-2.5 bg-white/90 dark:bg-slate-700/90 backdrop-blur-sm text-slate-700 dark:text-slate-200 hover-text-indigo-600 rounded-xl shadow-lg transition-all hover:scale-105"
           >
             <PencilIcon className="w-4 h-4" />
           </button>
           <button
             onClick={handleDelete}
-            className="p-2.5 bg-white/90 backdrop-blur-sm text-slate-700 hover-text-indigo-600 rounded-xl shadow-lg transition-all hover:scale-105 disabled:opacity-50"
+            className="p-2.5 bg-white/90 dark:bg-slate-700/90 backdrop-blur-sm text-slate-700 dark:text-slate-200 hover-text-indigo-600 rounded-xl shadow-lg transition-all hover:scale-105 disabled:opacity-50"
           >
             <Trash2Icon className="w-4 h-4" />
           </button>

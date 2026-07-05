@@ -74,17 +74,14 @@ export const getLeaves = async (req,res) => {
             const status = req.query.status
             const where = status ? {status}: {};
             const leaves = await LeaveApplication.find(where)
-            .populate("employeeId").sort({createdAt:-1})
+            .populate("employeeId").sort({createdAt:-1}).lean()
 
-                const data = leaves.map((l)=>{
-                    const obj = l.toObject();
+                const data = leaves.map((obj)=>{
                     return{
                         ...obj,
                         id: obj._id.toString(),
                         employee: obj.employeeId,
                         employeeId:obj.employeeId?._id?.toString(),
-                        
-                        
                     }
                 })
             return res.json({data})

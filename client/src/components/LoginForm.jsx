@@ -35,7 +35,7 @@ const LoginForm = ({ role, title, subtitle }) => {
       <LoginLeftSide />
       <div
         className="flex-1 flex items-center justify-center
-      p-6 sm:p-12 bg-white"
+      p-6 sm:p-12 bg-white dark:bg-slate-800"
       >
         <div className="w-full max-w-md animate-fade-in">
           <Link
