@@ -9,6 +9,32 @@ const ChangePasswordModel = ({open, onClose, }) => {
 
     const handleSubmit = async (e)=> {
         e.preventDefault();
+        setLoading(true)
+        setMessage({type: "", text: ""})
+        const formData = new FormData(e.currentTarget)
+        const currentPassword = formData.get("currentPassword")
+        const newPassword = formData.get("newPassword")
+
+        if(currentPassword === newPassword) {
+            setMessage({type: "error", text: "Current password and new password cannot be the same"})
+            setLoading(false)
+            return
+        }
+
+        try {
+            const {data} = await api.post('/auth/change-password', {currentPassword, newPassword})
+            
+            if(!data.success) throw new Error(data.error || "Failed");
+            e.target.reset()
+            
+            setMessage({type: "success", text: "Password changed successfully"})
+            onClose?.()
+            
+        } catch (error) {
+            setMessage({type: "error", text: error.response?.data?.error || error.message})
+        } finally {
+            setLoading(false)
+        }
     }
 
     if(!open) return null

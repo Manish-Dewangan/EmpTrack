@@ -1,7 +1,9 @@
 import { ArrowLeftIcon, EyeOffIcon, EyeIcon, Loader2Icon } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginLeftSide from "./LoginLeftSide";
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 const LoginForm = ({ role, title, subtitle }) => {
   const [email, setEmail] = useState("");
@@ -10,8 +12,23 @@ const LoginForm = ({ role, title, subtitle }) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const {login} = useAuth();
+  const navigate = useNavigate()
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
+    setError("")
+    try {
+        await login(email,password,role)
+        toast.success("Login successful")
+        navigate("/dashboard")
+    } catch (err) {
+        toast.error(err.response?.data?.message || "Login failed")
+        setError(err.response?.data?.message || "Login failed")
+    }finally{
+        setLoading(false)
+    }
   };
   return (
     <div className="min-h-screen flex flex-col md:flex-row">

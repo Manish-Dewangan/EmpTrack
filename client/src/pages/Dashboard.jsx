@@ -6,16 +6,15 @@ import {
 import Loading from "../components/Loading";
 import EmployeeDashboard from "../components/EmployeeDashboard";
 import AdminDashboard from "../components/AdminDashboard";
+import api from "../api/axios";
+import toast from "react-hot-toast";
 
 const Dashboard = () => {
   const [data, setdata] = useState(null);
   const [loading, setloading] = useState(true);
 
   useEffect(() => {
-    setdata(dummyAdminDashboardData);
-    setTimeout(() => {
-      setloading(false);
-    }, 1000);
+    api.get('/dashboard').then((res) => setdata(res.data)).catch((err)=> toast.error(err.responce?.data?.error || err?.message)).finally(()=> setloading(false))
   }, []);
 
   if (loading) return <Loading />;
