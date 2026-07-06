@@ -24,10 +24,10 @@ const LoginForm = ({ role, title, subtitle }) => {
         toast.success("Login successful")
         navigate("/dashboard")
     } catch (err) {
-        toast.error(err.response?.data?.message || "Login failed")
-        setError(err.response?.data?.message || "Login failed")
+        toast.error(err.response?.data?.error || err.response?.data?.message || "Login failed")
+        setError(err.response?.data?.error || err.response?.data?.message || "Login failed")
     }finally{
-        setLoading(false)
+        setLoading(false) 
     }
   };
   return (
