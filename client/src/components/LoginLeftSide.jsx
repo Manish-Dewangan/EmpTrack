@@ -79,7 +79,7 @@ const LoginLeftSide = () => {
           <div className="flex flex-wrap items-center gap-5 lg:gap-8">
             <div>
               <div className="text-xl lg:text-2xl font-semibold text-white">
-                10k+
+                NA
               </div>
               <div className="text-[11px] lg:text-xs text-slate-500 mt-0.5">
                 Active Users

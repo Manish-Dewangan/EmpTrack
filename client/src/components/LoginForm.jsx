@@ -12,8 +12,8 @@ import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
 
 const LoginForm = ({ role, title, subtitle }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(role === "admin" ? "admin@emptrack.com" : "emp1@emptrack.com");
+  const [password, setPassword] = useState(role === "admin" ? "admin123" : "emp123");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
