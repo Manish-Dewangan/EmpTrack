@@ -169,7 +169,7 @@ const Sidebar = () => {
                 EmpTrack
               </p>
               <p className="text-[11px] text-slate-500 font-medium">
-                v2.0 • {role === "ADMIN" ? "Admin" : "Employee"}
+                 EMS System
               </p>
             </div>
           </div>

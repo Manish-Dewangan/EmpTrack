@@ -57,7 +57,7 @@ export const getPayslips = async (req, res)=>{
 
             const payslips = await Payslip.find({employeeId: employee._id}).sort({createdAt : -1})
 
-            return res.json({payslips})
+            return res.json({data: payslips})
         }
     } catch (error) {
         res.status(500).json({message: "Failed to get payslips", error: error.message})
