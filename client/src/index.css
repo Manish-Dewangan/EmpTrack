@@ -132,3 +132,18 @@ body {
 ::selection {
     @apply bg-indigo-100 text-indigo-900;
 }
+
+
+/* Smooth theme transition */
+.theme-transitioning,
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.2s ease,
+    fill 0.2s ease,
+    stroke 0.2s ease,
+    box-shadow 0.2s ease !important;
+}
