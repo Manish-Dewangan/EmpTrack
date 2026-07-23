@@ -3,13 +3,15 @@
 EmpTrack is a full-stack employee management dashboard built with a React + Vite frontend and an Express + MongoDB backend.
 
 ## Project preview
-<img width="1920" height="910" alt="image" src="https://github.com/user-attachments/assets/af3051cc-de06-4fdf-b876-1a87ac0b728c" />
+<img width="1917" height="911" alt="front_page_emptrack" src="https://github.com/user-attachments/assets/404ee634-2fc0-4f64-a437-47623d30a332" />
 
 ---
-<img width="1920" height="913" alt="image" src="https://github.com/user-attachments/assets/2bca8b13-2266-47ac-a3d8-f9f2951fbd68" />
+
+<img width="1917" height="910" alt="2nd_page" src="https://github.com/user-attachments/assets/fb5ad248-8733-4084-94d0-a49cd85cb010" />
 
 ---
-<img width="1920" height="911" alt="image" src="https://github.com/user-attachments/assets/9a991017-3638-47da-a268-4bb30ec2770c" />
+
+<img width="1917" height="912" alt="3rd_apge" src="https://github.com/user-attachments/assets/f3f77746-6c7b-4d1a-a6d6-1034046e0e70" />
 
 ---
 
